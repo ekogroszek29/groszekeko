@@ -86,12 +86,12 @@ try:
             article_title= tokenizer.batch_decode(outputs, skip_special_tokens=True)[0]
 
             #keywords
-            article_keywords = nlp(article_en)
+            article_keywords = nlp(article_en[:4000])
             article_keywords = [article_keywords[i]['word'] for i in range(len(article_keywords)) ]
             article_keywords = list(dict.fromkeys(article_keywords))
 
             #summarization
-            article_summary_en = summarizer(article_en, max_length=230, min_length=50, do_sample=False)
+            article_summary_en = summarizer(article_en[:4000], max_length=230, min_length=50, do_sample=False)
             art_tmp = article_summary_en[0]['summary_text']
             article_summary = ""
             for a in range(0,len(art_tmp),1500):
@@ -183,12 +183,12 @@ try:
             article_title= GoogleTranslator(source='cs', target='en').translate(article.title)
 
             #keywords
-            article_keywords = nlp(article_en)
+            article_keywords = nlp(article_en[:4000])
             article_keywords = [article_keywords[i]['word'] for i in range(len(article_keywords)) ]
             article_keywords = list(dict.fromkeys(article_keywords))
 
             #summarization
-            article_summary_en = summarizer(article_en, max_length=230, min_length=50, do_sample=False)
+            article_summary_en = summarizer(article_en[:4000], max_length=230, min_length=50, do_sample=False)
             art_tmp = article_summary_en[0]['summary_text']
             article_summary = ""
             for a in range(0,len(art_tmp),1500):
