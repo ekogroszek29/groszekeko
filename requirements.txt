@@ -1,5 +1,13 @@
-selenium==4.16.0
-webdriver-manager==4.0.1
-deta==1.2.0
-beautifulsoup4==4.12.2
-deep_translator
+pandas==1.4.2
+newspaper3k==0.2.8
+deta==1.1.0
+datetime==5.1
+beautifulsoup4==4.11.1
+urllib3==1.26.9
+transformers==4.26.1
+sentence-transformers==2.2.2
+sentencepiece==0.1.97
+nltk==3.8.1
+numpy==1.23.4
+lxml_html_clean==0.1.1
+from deep_translator import GoogleTranslator
