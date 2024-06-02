@@ -10,4 +10,4 @@ sentencepiece==0.1.97
 nltk==3.8.1
 numpy==1.23.4
 lxml_html_clean==0.1.1
-from deep_translator import GoogleTranslator
+deep-translator==1.11.4
