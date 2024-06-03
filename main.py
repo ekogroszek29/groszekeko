@@ -107,7 +107,7 @@ for j in range(1,2):
             article_summary += article_summ
 
         #Sentiment Analysis
-        article_ass = sena(article_en[:2000])[0]['label']
+        article_ass = sena(article_en[:1500])[0]['label']
 
         hu_portfolio.append([
                 article_title
@@ -206,7 +206,7 @@ for i in links_idnes:
         article_summary += article_summ
 
     #Sentiment Analysis
-    article_ass = sena(article_en[:2000])[0]['label']
+    article_ass = sena(article_en[:1500])[0]['label']
 
     cz_idnes.append([
             article_title
