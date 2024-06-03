@@ -107,7 +107,10 @@ for j in range(1,2):
             article_summary += article_summ
 
         #Sentiment Analysis
-        article_ass = sena(article_en[:1500])[0]['label']
+        try:
+            article_ass = sena(article_en[:1500])[0]['label']
+        except:
+            article_ass = "Neutral"
 
         hu_portfolio.append([
                 article_title
