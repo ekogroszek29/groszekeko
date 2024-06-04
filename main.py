@@ -89,7 +89,11 @@ for j in range(1,2):
         #tytul
         input_ids = tokenizer(article.title, return_tensors="pt").input_ids
         outputs = model.generate(input_ids=input_ids, num_beams=5, num_return_sequences=1)
-        article_title= tokenizer.batch_decode(outputs, skip_special_tokens=True)[0]
+        article_title_2= tokenizer.batch_decode(outputs, skip_special_tokens=True)[0]
+        article_title = ""
+        input_ids = tokenizer_pl(str(article_title_2), return_tensors="pt").input_ids
+        outputs = model_pl.generate(input_ids=input_ids, num_beams=5, num_return_sequences=1, max_new_tokens=200)
+        article_title= tokenizer_pl.batch_decode(outputs, skip_special_tokens=True)[0]
 
         #keywords
         article_keywords = nlp(article_en[:4000])
