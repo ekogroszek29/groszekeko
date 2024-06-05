@@ -173,7 +173,7 @@ soup = BeautifulSoup(html_page, "lxml")
 links_dnes = []
 for link in soup.findAll('a'):
     x = str(link.get('href'))
-    if x[:31] == 'https://www.idnes.cz/ekonomika/' and len(x)>100:
+    if x[:31] == 'https://www.idnes.cz/ekonomika/' and len(x)>50:
         links_dnes.append(x)
 
 links_idnes = list(dict.fromkeys(links_dnes))
@@ -219,13 +219,14 @@ for i in links_idnes:
             article_title
             ,article_summary
             ,article_keywords
+            ,article.publish_date
             ,article_en
             ,article.url
             ,article_ass])
 
 
 
-df = pd.DataFrame(cz_idnes, columns =['title',"summary","keywords","text","url","sentiment_analysis"])
+df = pd.DataFrame(cz_idnes, columns =['title',"summary","keywords","date","text","url","sentiment_analysis"])
 
 
 title = df['title'].tolist()
@@ -237,6 +238,9 @@ summary = [str(x) for x in summary]
 keywords = df['keywords'].tolist()
 keywords = [str(x) for x in keywords]
 
+date = df['date'].tolist()
+date = [str(x) for x in date]
+
 text = df['text'].tolist()
 text = [str(x) for x in text]
 
@@ -246,9 +250,9 @@ url = [str(x) for x in url]
 ass = df['sentiment_analysis'].tolist()
 ass = [str(x) for x in ass]
 
-key = today + '_hu_portfolio'
+key = today + '_cz'
 
-insert_period(key,title,summary,keywords,text,url,ass,today)
+insert_period(key,title,summary,keywords,date,text,url,ass,today)
 
 
 
